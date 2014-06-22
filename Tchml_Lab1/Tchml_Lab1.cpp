@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include <conio.h>
 #include <string.h>
-#include <Windows.h>
 #include <math.h>
 #define _CRTDBG_MAP_ALLOC
 #include <crtdbg.h>
@@ -15,43 +14,42 @@ bool Solve(char* fName_In1, char operation, char* fName_In2, char* fNameRes, int
 
 void PrintStart()
 {
-	printf("Реализация арифметических операций над большими числами:\n");
-	printf("сложение, вычитание, умножение, делание, возведение в степень, вычисление остатка от деления.\n");
-	printf("Управляющая строка должна иметь вид: \n");
+	printf("Realization of arithmetic operations with big numbers:\n");
+	printf("addition, substraction, multiplication, dividing, involution, taking the remainder.\n");
+	printf("Main string should be in a such way: \n");
 	printf("[fileName1_in] [operation] [fileName2_in] [resFileName] [key] [modFileName]");
-	printf("	fileName1_in - файл с первым большим числом\n");
-	printf("	operation - знак выполняемой операции:\n");
-	printf("		""+"" - сложение\n");
-	printf("		""-"" - вычитание\n");
-	printf("		""*"" - умножение\n");
-	printf("		""/"" - деление\n");
-	printf("		""^"" - возведение в степень\n");
-	printf("		""|"" - вычисление остатка от деления числа\n");
-	printf("	fileName2_in - файл со вторым большим числом\n");
-	printf("	resFileName - файл с большим числом-результатом\n");
-	printf("	если указан ключ -b, то обработка файлов производится в бинарном формате\n");
-	printf("	иначе по умолчанию производится обработка файлов в текстовом формате\n");
-	printf("	modFileName - файл, содержащий большое число модуль\n");
-	printf("	если указан файл с модулем числа, то все вычисления производятся по этому модулю\n");
+	printf("	fileName1_in - file with the first big number\n");
+	printf("	operation:\n");
+	printf("		""+"" - addition\n");
+	printf("		""-"" - substraction\n");
+	printf("		""*"" - multiplication\n");
+	printf("		""/"" - dividing\n");
+	printf("		""^"" - involution\n");
+	printf("		""|"" - taking the remainder\n");
+	printf("	fileName2_in - file with the second big number\n");
+	printf("	resFileName - file with the big number-result\n");
+	printf("	-b - binary processing\n");
+	printf("	else - text processing\n");
+	printf("	modFileName - file with a big number - modul\n");
 }
 
 bool checkParam(int argc, char* argv[])
 {
 	if(argc < 5)
 	{
-		printf("Недостаточно параметров. Управляющая строка введена неверно.\n");
+		printf("There is lake of parameters. Main string was entered wrongly.\n");
 		return false;
 	}
 
 	if(argc > 7)
 	{
-		printf("Слишком много параметров. Управляющая строка введена неверно.\n");
+		printf("Too many parameters. Main string was entered wrongly.\n");
 		return false;
 	}
 
 	if(strlen(argv[2]) > 1)
 	{
-		printf("Такой операции не существует.\n");
+		printf("Wrong operation.\n");
 		return false;
 	}
 
@@ -73,7 +71,7 @@ bool fileRead(int** bigNumArr, char* fileName, int base, int& arrSize, char& num
 	FILE* fp = fopen(fileName, flag);
 	if(!fp)
 	{
-		printf("Не удалось открыть файл с большим числом. Ошибка\n");
+		printf("Can't open the file with a big number. Error!\n");
 		return false;
 	}
 
@@ -162,7 +160,7 @@ bool fileRead(int** bigNumArr, char* fileName, int base, int& arrSize, char& num
 	}
 
 	fclose(fp);
-	printf("Большое число из файла считано успешно.\n");
+	printf("The big number is successfully read from file.\n");
 	return true;
 }
 
@@ -216,7 +214,7 @@ bool fileWrite(int* bigNumArr, char numSign, int bigNumArrSize, char* fileResult
 	}
 
 	fclose(fp);
-	printf("Большое число успешно записано в файл результата.\n");
+	printf("The big number is successfully written to file.\n");
 	return true;
 }
 
@@ -410,9 +408,6 @@ int* copyArr(int* newArr, int* oldArr, int& newArrSize, int oldArrSize)
 
 int main(int argc, char* argv[])
 {
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
-
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
 	PrintStart();
@@ -463,14 +458,14 @@ int main(int argc, char* argv[])
 		}
 		else
 		{
-			printf("Введено слишком много параметров. Ошибка.\n");
+			printf("Too many parameters. Error!\n");
 			return 0;
 		}
 	}
 
 	if(!Solve(fileName_In1, operation, fileName_In2, fileResult, base, modFile, modBool))
 	{
-		printf("В вычислениях произошла ошибка.\n");
+		printf("There is error in processing. \n");
 	}
 
 	return 0;
@@ -603,7 +598,7 @@ int* divOnDigit(int* firstNumArr, int digit, int* resNumArr, int firstNumArrSize
 {
 	if(!digit)
 	{
-		printf("Деление на ноль. Ошибка.\n");
+		printf("Dividing to the zero. Error!\n");
 		return firstNumArr;
 	}
 
@@ -660,7 +655,7 @@ int* dividing(int* firstNumArr, int* secondNumArr, int* resNumArr, int firstNumA
 			}
 			else
 			{
-				printf("Деление на ноль! Ошибка.\n");
+				printf("Dividing to the zero. Error!\n");
 				return firstNumArr;
 			}
 		}
@@ -952,13 +947,13 @@ bool Solve(char* fName_In1, char operation, char* fName_In2, char* fNameRes, int
 	
 	if(!fileRead(&firstNumArr, fName_In1, base, firstNumArrSize, firstNumSign))
 	{
-		printf("Косяк считывания первого числа!\n");
+		printf("Can't read the first big number from file!\n");
 		return false;
 	}
 
 	if(!fileRead(&secondNumArr, fName_In2, base, secNumArrSize, secNumSign))
 	{
-		printf("Косяк считывания второго числа!\n");
+		printf("Can't read the second big number from file!\n");
 		return false;
 	}
 	
@@ -1026,7 +1021,7 @@ bool Solve(char* fName_In1, char operation, char* fName_In2, char* fNameRes, int
 			resNumArr = remainder(firstNumArr, secondNumArr, resNumArr, firstNumArrSize, secNumArrSize, resNumArrSize, base);
 			break;
 		default:
-			printf("Операция введена некорректно. Ошибка.\n");
+			printf("Wrong operation. Error.\n");
 			return false;
 			break;
 	}
@@ -1042,7 +1037,7 @@ bool Solve(char* fName_In1, char operation, char* fName_In2, char* fNameRes, int
 
 		if(!fileRead(&modNumArr, modulFile, base, modNumArrSize, modNumSign))
 		{
-			printf("Косяк считывания числа из файла c модулем!\n");
+			printf("Can't read the bid number from file with a modul!\n");
 			return false;
 		}
 
@@ -1061,7 +1056,7 @@ bool Solve(char* fName_In1, char operation, char* fName_In2, char* fNameRes, int
 
 	if(!fileWrite(resNumArr, resNumSign, resNumArrSize, fNameRes, base))
 	{
-		printf("Косяк записи результата в файл! Ошибка.\n");
+		printf("Can't write big number to the file. Error!\n");
 	}
 
 	delete [] firstNumArr;
