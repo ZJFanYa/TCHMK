@@ -1,4 +1,4 @@
-// Tchml_Lab1.cpp: определяет точку входа для консольного приложения.
+п»ї// Tchml_Lab1.cpp: РѕРїСЂРµРґРµР»СЏРµС‚ С‚РѕС‡РєСѓ РІС…РѕРґР° РґР»СЏ РєРѕРЅСЃРѕР»СЊРЅРѕРіРѕ РїСЂРёР»РѕР¶РµРЅРёСЏ.
 //
 
 #include "stdafx.h"
@@ -15,43 +15,43 @@ bool Solve(char* fName_In1, char operation, char* fName_In2, char* fNameRes, int
 
 void PrintStart()
 {
-	printf("Реализация арифметических операций над большими числами:\n");
-	printf("сложение, вычитание, умножение, делание, возведение в степень, вычисление остатка от деления.\n");
-	printf("Управляющая строка должна иметь вид: \n");
+	printf("Р РµР°Р»РёР·Р°С†РёСЏ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРёС… РѕРїРµСЂР°С†РёР№ РЅР°Рґ Р±РѕР»СЊС€РёРјРё С‡РёСЃР»Р°РјРё:\n");
+	printf("СЃР»РѕР¶РµРЅРёРµ, РІС‹С‡РёС‚Р°РЅРёРµ, СѓРјРЅРѕР¶РµРЅРёРµ, РґРµР»Р°РЅРёРµ, РІРѕР·РІРµРґРµРЅРёРµ РІ СЃС‚РµРїРµРЅСЊ, РІС‹С‡РёСЃР»РµРЅРёРµ РѕСЃС‚Р°С‚РєР° РѕС‚ РґРµР»РµРЅРёСЏ.\n");
+	printf("РЈРїСЂР°РІР»СЏСЋС‰Р°СЏ СЃС‚СЂРѕРєР° РґРѕР»Р¶РЅР° РёРјРµС‚СЊ РІРёРґ: \n");
 	printf("[fileName1_in] [operation] [fileName2_in] [resFileName] [key] [modFileName]");
-	printf("	fileName1_in - файл с первым большим числом\n");
-	printf("	operation - знак выполняемой операции:\n");
-	printf("		""+"" - сложение\n");
-	printf("		""-"" - вычитание\n");
-	printf("		""*"" - умножение\n");
-	printf("		""/"" - деление\n");
-	printf("		""^"" - возведение в степень\n");
-	printf("		""|"" - вычисление остатка от деления числа\n");
-	printf("	fileName2_in - файл со вторым большим числом\n");
-	printf("	resFileName - файл с большим числом-результатом\n");
-	printf("	если указан ключ -b, то обработка файлов производится в бинарном формате\n");
-	printf("	иначе по умолчанию производится обработка файлов в текстовом формате\n");
-	printf("	modFileName - файл, содержащий большое число модуль\n");
-	printf("	если указан файл с модулем числа, то все вычисления производятся по этому модулю\n");
+	printf("	fileName1_in - С„Р°Р№Р» СЃ РїРµСЂРІС‹Рј Р±РѕР»СЊС€РёРј С‡РёСЃР»РѕРј\n");
+	printf("	operation - Р·РЅР°Рє РІС‹РїРѕР»РЅСЏРµРјРѕР№ РѕРїРµСЂР°С†РёРё:\n");
+	printf("		""+"" - СЃР»РѕР¶РµРЅРёРµ\n");
+	printf("		""-"" - РІС‹С‡РёС‚Р°РЅРёРµ\n");
+	printf("		""*"" - СѓРјРЅРѕР¶РµРЅРёРµ\n");
+	printf("		""/"" - РґРµР»РµРЅРёРµ\n");
+	printf("		""^"" - РІРѕР·РІРµРґРµРЅРёРµ РІ СЃС‚РµРїРµРЅСЊ\n");
+	printf("		""|"" - РІС‹С‡РёСЃР»РµРЅРёРµ РѕСЃС‚Р°С‚РєР° РѕС‚ РґРµР»РµРЅРёСЏ С‡РёСЃР»Р°\n");
+	printf("	fileName2_in - С„Р°Р№Р» СЃРѕ РІС‚РѕСЂС‹Рј Р±РѕР»СЊС€РёРј С‡РёСЃР»РѕРј\n");
+	printf("	resFileName - С„Р°Р№Р» СЃ Р±РѕР»СЊС€РёРј С‡РёСЃР»РѕРј-СЂРµР·СѓР»СЊС‚Р°С‚РѕРј\n");
+	printf("	РµСЃР»Рё СѓРєР°Р·Р°РЅ РєР»СЋС‡ -b, С‚Рѕ РѕР±СЂР°Р±РѕС‚РєР° С„Р°Р№Р»РѕРІ РїСЂРѕРёР·РІРѕРґРёС‚СЃСЏ РІ Р±РёРЅР°СЂРЅРѕРј С„РѕСЂРјР°С‚Рµ\n");
+	printf("	РёРЅР°С‡Рµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РїСЂРѕРёР·РІРѕРґРёС‚СЃСЏ РѕР±СЂР°Р±РѕС‚РєР° С„Р°Р№Р»РѕРІ РІ С‚РµРєСЃС‚РѕРІРѕРј С„РѕСЂРјР°С‚Рµ\n");
+	printf("	modFileName - С„Р°Р№Р», СЃРѕРґРµСЂР¶Р°С‰РёР№ Р±РѕР»СЊС€РѕРµ С‡РёСЃР»Рѕ РјРѕРґСѓР»СЊ\n");
+	printf("	РµСЃР»Рё СѓРєР°Р·Р°РЅ С„Р°Р№Р» СЃ РјРѕРґСѓР»РµРј С‡РёСЃР»Р°, С‚Рѕ РІСЃРµ РІС‹С‡РёСЃР»РµРЅРёСЏ РїСЂРѕРёР·РІРѕРґСЏС‚СЃСЏ РїРѕ СЌС‚РѕРјСѓ РјРѕРґСѓР»СЋ\n");
 }
 
 bool checkParam(int argc, char* argv[])
 {
 	if(argc < 5)
 	{
-		printf("Недостаточно параметров. Управляющая строка введена неверно.\n");
+		printf("РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїР°СЂР°РјРµС‚СЂРѕРІ. РЈРїСЂР°РІР»СЏСЋС‰Р°СЏ СЃС‚СЂРѕРєР° РІРІРµРґРµРЅР° РЅРµРІРµСЂРЅРѕ.\n");
 		return false;
 	}
 
 	if(argc > 7)
 	{
-		printf("Слишком много параметров. Управляющая строка введена неверно.\n");
+		printf("РЎР»РёС€РєРѕРј РјРЅРѕРіРѕ РїР°СЂР°РјРµС‚СЂРѕРІ. РЈРїСЂР°РІР»СЏСЋС‰Р°СЏ СЃС‚СЂРѕРєР° РІРІРµРґРµРЅР° РЅРµРІРµСЂРЅРѕ.\n");
 		return false;
 	}
 
 	if(strlen(argv[2]) > 1)
 	{
-		printf("Такой операции не существует.\n");
+		printf("РўР°РєРѕР№ РѕРїРµСЂР°С†РёРё РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.\n");
 		return false;
 	}
 
@@ -73,7 +73,7 @@ bool fileRead(int** bigNumArr, char* fileName, int base, int& arrSize, char& num
 	FILE* fp = fopen(fileName, flag);
 	if(!fp)
 	{
-		printf("Не удалось открыть файл с большим числом. Ошибка\n");
+		printf("РќРµ СѓРґР°Р»РѕСЃСЊ РѕС‚РєСЂС‹С‚СЊ С„Р°Р№Р» СЃ Р±РѕР»СЊС€РёРј С‡РёСЃР»РѕРј. РћС€РёР±РєР°\n");
 		return false;
 	}
 
@@ -162,7 +162,7 @@ bool fileRead(int** bigNumArr, char* fileName, int base, int& arrSize, char& num
 	}
 
 	fclose(fp);
-	printf("Большое число из файла считано успешно.\n");
+	printf("Р‘РѕР»СЊС€РѕРµ С‡РёСЃР»Рѕ РёР· С„Р°Р№Р»Р° СЃС‡РёС‚Р°РЅРѕ СѓСЃРїРµС€РЅРѕ.\n");
 	return true;
 }
 
@@ -216,7 +216,7 @@ bool fileWrite(int* bigNumArr, char numSign, int bigNumArrSize, char* fileResult
 	}
 
 	fclose(fp);
-	printf("Большое число успешно записано в файл результата.\n");
+	printf("Р‘РѕР»СЊС€РѕРµ С‡РёСЃР»Рѕ СѓСЃРїРµС€РЅРѕ Р·Р°РїРёСЃР°РЅРѕ РІ С„Р°Р№Р» СЂРµР·СѓР»СЊС‚Р°С‚Р°.\n");
 	return true;
 }
 
@@ -463,14 +463,14 @@ int main(int argc, char* argv[])
 		}
 		else
 		{
-			printf("Введено слишком много параметров. Ошибка.\n");
+			printf("Р’РІРµРґРµРЅРѕ СЃР»РёС€РєРѕРј РјРЅРѕРіРѕ РїР°СЂР°РјРµС‚СЂРѕРІ. РћС€РёР±РєР°.\n");
 			return 0;
 		}
 	}
 
 	if(!Solve(fileName_In1, operation, fileName_In2, fileResult, base, modFile, modBool))
 	{
-		printf("В вычислениях произошла ошибка.\n");
+		printf("Р’ РІС‹С‡РёСЃР»РµРЅРёСЏС… РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°.\n");
 	}
 
 	return 0;
@@ -603,7 +603,7 @@ int* divOnDigit(int* firstNumArr, int digit, int* resNumArr, int firstNumArrSize
 {
 	if(!digit)
 	{
-		printf("Деление на ноль. Ошибка.\n");
+		printf("Р”РµР»РµРЅРёРµ РЅР° РЅРѕР»СЊ. РћС€РёР±РєР°.\n");
 		return firstNumArr;
 	}
 
@@ -660,7 +660,7 @@ int* dividing(int* firstNumArr, int* secondNumArr, int* resNumArr, int firstNumA
 			}
 			else
 			{
-				printf("Деление на ноль! Ошибка.\n");
+				printf("Р”РµР»РµРЅРёРµ РЅР° РЅРѕР»СЊ! РћС€РёР±РєР°.\n");
 				return firstNumArr;
 			}
 		}
@@ -952,13 +952,13 @@ bool Solve(char* fName_In1, char operation, char* fName_In2, char* fNameRes, int
 	
 	if(!fileRead(&firstNumArr, fName_In1, base, firstNumArrSize, firstNumSign))
 	{
-		printf("Косяк считывания первого числа!\n");
+		printf("РљРѕСЃСЏРє СЃС‡РёС‚С‹РІР°РЅРёСЏ РїРµСЂРІРѕРіРѕ С‡РёСЃР»Р°!\n");
 		return false;
 	}
 
 	if(!fileRead(&secondNumArr, fName_In2, base, secNumArrSize, secNumSign))
 	{
-		printf("Косяк считывания второго числа!\n");
+		printf("РљРѕСЃСЏРє СЃС‡РёС‚С‹РІР°РЅРёСЏ РІС‚РѕСЂРѕРіРѕ С‡РёСЃР»Р°!\n");
 		return false;
 	}
 	
@@ -1026,7 +1026,7 @@ bool Solve(char* fName_In1, char operation, char* fName_In2, char* fNameRes, int
 			resNumArr = remainder(firstNumArr, secondNumArr, resNumArr, firstNumArrSize, secNumArrSize, resNumArrSize, base);
 			break;
 		default:
-			printf("Операция введена некорректно. Ошибка.\n");
+			printf("РћРїРµСЂР°С†РёСЏ РІРІРµРґРµРЅР° РЅРµРєРѕСЂСЂРµРєС‚РЅРѕ. РћС€РёР±РєР°.\n");
 			return false;
 			break;
 	}
@@ -1042,7 +1042,7 @@ bool Solve(char* fName_In1, char operation, char* fName_In2, char* fNameRes, int
 
 		if(!fileRead(&modNumArr, modulFile, base, modNumArrSize, modNumSign))
 		{
-			printf("Косяк считывания числа из файла c модулем!\n");
+			printf("РљРѕСЃСЏРє СЃС‡РёС‚С‹РІР°РЅРёСЏ С‡РёСЃР»Р° РёР· С„Р°Р№Р»Р° c РјРѕРґСѓР»РµРј!\n");
 			return false;
 		}
 
@@ -1061,7 +1061,7 @@ bool Solve(char* fName_In1, char operation, char* fName_In2, char* fNameRes, int
 
 	if(!fileWrite(resNumArr, resNumSign, resNumArrSize, fNameRes, base))
 	{
-		printf("Косяк записи результата в файл! Ошибка.\n");
+		printf("РљРѕСЃСЏРє Р·Р°РїРёСЃРё СЂРµР·СѓР»СЊС‚Р°С‚Р° РІ С„Р°Р№Р»! РћС€РёР±РєР°.\n");
 	}
 
 	delete [] firstNumArr;
