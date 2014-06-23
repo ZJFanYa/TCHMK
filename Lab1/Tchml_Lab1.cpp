@@ -1,13 +1,12 @@
 ﻿// Tchml_Lab1.cpp: определяет точку входа для консольного приложения.
 //
 
-#include "stdafx.h"
 #include <stdio.h>
-#include <conio.h>
+//#include <conio.h>
 #include <string.h>
 #include <math.h>
-#define _CRTDBG_MAP_ALLOC
-#include <crtdbg.h>
+//#define _CRTDBG_MAP_ALLOC
+//#include <crtdbg.h>
 
 bool checkParam(int argc, char* argv[]);
 bool Solve(char* fName_In1, char operation, char* fName_In2, char* fNameRes, int base, char* modulFile, bool isModul);
@@ -408,7 +407,7 @@ int* copyArr(int* newArr, int* oldArr, int& newArrSize, int oldArrSize)
 
 int main(int argc, char* argv[])
 {
-	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+	//_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
 	PrintStart();
 
