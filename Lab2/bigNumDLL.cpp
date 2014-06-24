@@ -306,32 +306,36 @@ int* bigNum::fileRead(char* fileIn, int base, int& arrSize, char& numberSign)
 	int fileSize = ftell(fp);
 	int curPos = 0;
 	
-	fseek(fp, 0, SEEK_SET);
-	if(fgetc(fp) == '-')
-	{
-		numberSign = '-';
-		curPos = fileSize;
-		fileSize -= 1;
-	}
-	else
-	{
-		numberSign = '+';
-		curPos = fileSize;
-	} 
-
 	if(base == 1000000000)
 	{
+		fseek(fp, 0, SEEK_SET);
+		if(fgetc(fp) == '-')
+		{
+			numberSign = '-';
+			curPos = fileSize;
+			fileSize -= 1;
+		}
+		else
+		{
+			numberSign = '+';
+			curPos = fileSize;
+		} 
+
 		if(!(fileSize % 9))
 		{
 			arrSize = fileSize / 9;
 		}
 		else
 		{
+			numberSign = '+';
+			curPos = fileSize;
 			arrSize = fileSize / 9 + 1;
 		}
 	}
 	else if(base == 256)
 	{
+		numberSign = '+';
+		curPos = fileSize;
 		arrSize = fileSize;
 	}
 

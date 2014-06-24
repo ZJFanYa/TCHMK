@@ -6,7 +6,7 @@
 //#define _CRTDBG_MAP_ALLOC
 //#include <crtdbg.h>
 #include <math.h>
-#include "BigNumDLL.h"
+#include "bigNumDLL.h"
 
 void PrintStart()
 {
